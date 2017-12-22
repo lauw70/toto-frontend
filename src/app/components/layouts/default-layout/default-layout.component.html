@@ -1,3 +1,11 @@
-<p>
-  default-layout works!
-</p>
+<mat-sidenav-container fullscreen>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>{{ title }}</span>
+      <span class="spacer"></span>
+      <mat-icon class="example-icon">favorite</mat-icon>
+      <mat-icon class="example-icon">delete</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

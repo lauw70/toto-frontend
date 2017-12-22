@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6 l4" *ngFor="let match of matches; ">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{match.enemy.clubName}} - {{match.enemy.teamName}}</mat-card-title>
+          <mat-card-subtitle>{{match.enemy.clubPlace}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="match-card">
+
+          <div *ngIf="match.played;then outcome_overview else no_outcome"></div>
+
+          <ng-template #outcome_overview>
+            <h3>{{match.outcome_self.score}} - {{match.outcome_enemy.score}}</h3>
+            <p>{{outcomeText(match)}}</p>
+          </ng-template>
+          <ng-template #no_outcome>
+            <p>Nog geen uitslag beschikbaar</p>
+          </ng-template>
+        </mat-card-content>
+        <mat-card-actions>
+          <button [routerLink]="['/main/match', match.id]" mat-button>{{match.played ? 'UITSLAG' : 'INVULLEN'}}</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,17 @@
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 import {NgModule} from '@angular/core';
 
+const MatModules: any[] = [
+  MatButtonModule,
+  MatCheckboxModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatCardModule
+];
+
 @NgModule({
-  imports: [MatButtonModule, MatCheckboxModule],
-  exports: [MatButtonModule, MatCheckboxModule],
+  imports: MatModules,
+  exports: MatModules,
 })
 export class AppMaterialComponents { }

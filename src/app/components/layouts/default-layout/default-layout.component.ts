@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GlobalVarsService} from '../../../services/global-vars.service';
 
 @Component({
   selector: 'app-default-layout',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultLayoutComponent implements OnInit {
 
-  constructor() { }
+  title: string;
+
+  constructor(private _globalVarsService: GlobalVarsService) {
+    this._globalVarsService.pageTitle.subscribe(value => this.title = value);
+  }
 
   ngOnInit() {
   }
